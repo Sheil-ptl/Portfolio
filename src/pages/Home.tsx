@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import ParticleField from '../components/ParticleField'
 import Constellation from '../components/Constellation'
+import resumePDF from '../assets/Sheil_Patel_Resume.pdf'
 
 export default function Home() {
   return (
@@ -63,18 +64,38 @@ export default function Home() {
           </p>
 
           <div className="flex flex-wrap justify-start gap-3">
-            <button className="px-4 py-2 text-sm bg-gray-800 text-gray-200 rounded-lg hover:bg-white hover:text-black transition">
+            <a 
+              href="https://www.linkedin.com/in/sheil-patel-a7a00b319/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-block px-4 py-2 text-sm bg-gray-800 text-gray-200 rounded-lg hover:bg-white hover:text-black transition no-underline"
+            >
               LinkedIn
-            </button>
-            <button className="px-4 py-2 text-sm bg-gray-800 text-gray-200 rounded-lg hover:bg-white hover:text-black transition">
+            </a>
+            <a 
+              href="https://github.com/Sheil-ptl" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-block px-4 py-2 text-sm bg-gray-800 text-gray-200 rounded-lg hover:bg-white hover:text-black transition no-underline"
+            >
               GitHub
-            </button>
-            <button className="px-4 py-2 text-sm bg-gray-800 text-gray-200 rounded-lg hover:bg-white hover:text-black transition">
+            </a>
+            <a 
+              href={resumePDF} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-block px-4 py-2 text-sm bg-gray-800 text-gray-200 rounded-lg hover:bg-white hover:text-black transition no-underline"
+            >
               Resume
-            </button>
-            <button className="px-4 py-2 text-sm bg-gray-800 text-gray-200 rounded-lg hover:bg-white hover:text-black transition">
+            </a>
+            <a 
+              href="mailto:sheilap5018@gmail.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-block px-4 py-2 text-sm bg-gray-800 text-gray-200 rounded-lg hover:bg-white hover:text-black transition no-underline"
+            >
               Email
-            </button>
+            </a>
           </div>
         </motion.div>
       </div>
