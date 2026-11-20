@@ -9,7 +9,7 @@ const LINKS = [
 
 export default function Navbar() {
   return (
-    <nav className="flex justify-start gap-3 px-8 py-4 bg-black border-b border-gray-800">
+    <nav className="relative z-10 flex justify-start gap-3 px-8 py-4 bg-black border-b border-gray-800">
       {LINKS.map((link) => (
         <NavLink
           key={link.to}
