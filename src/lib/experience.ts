@@ -5,8 +5,8 @@
 //   end:   'YYYY-MM' | 'current'  use 'current' if you still hold the role
 //   category: 'cs'     → shows under the CS filter
 //             'beyond' → non-CS roles (sport, retail, volunteering, ...)
-// Order doesn't matter — the timeline sorts entries oldest → newest
-// (left → right).
+// Order doesn't matter — the timeline sorts entries automatically
+// (current roles first, then most recent).
 
 export type ExperienceCategory = 'cs' | 'beyond'
 
@@ -121,10 +121,11 @@ export function formatDuration(exp: Experience): string {
   return [years && `${years} yr`, rest && `${rest} mo`].filter(Boolean).join(' ')
 }
 
-// Oldest first (by start date, then end date). 'YYYY-MM' strings sort
-// correctly as plain strings, and 'current' sorts after any year.
-export function sortChronological(list: Experience[]): Experience[] {
+// Current roles first, then by end date, then by start date (newest first).
+// 'YYYY-MM' strings sort correctly as plain strings.
+export function sortByRecent(list: Experience[]): Experience[] {
+  const endKey = (e: Experience) => (isCurrent(e) ? '9999-99' : e.end)
   return [...list].sort(
-    (a, b) => a.start.localeCompare(b.start) || a.end.localeCompare(b.end)
+    (a, b) => endKey(b).localeCompare(endKey(a)) || b.start.localeCompare(a.start)
   )
 }
