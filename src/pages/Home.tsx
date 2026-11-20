@@ -1,13 +1,13 @@
 import { motion } from 'framer-motion'
 import ParticleField from '../components/ParticleField'
-import Constellation from '../components/Constellation'
+// import Constellation from '../components/Constellation'
 import resumePDF from '../assets/Sheil_Patel_Resume.pdf'
 
 export default function Home() {
   return (
     <div className="relative w-full h-[calc(100vh-73px)] overflow-hidden bg-black">
       <ParticleField />
-      <Constellation />
+      {/* <Constellation /> */}
       <div
         className="absolute bottom-0 right-0 w-full md:w-[55rem] h-2/3 pointer-events-none"
         style={{
