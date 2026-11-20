@@ -8,7 +8,6 @@ export default function Home() {
     <div className="relative w-full h-[calc(100vh-73px)] overflow-hidden bg-black">
       <ParticleField />
       <Constellation />
-
       <div
         className="absolute bottom-0 right-0 w-full md:w-[55rem] h-2/3 pointer-events-none"
         style={{
