@@ -16,6 +16,8 @@ export interface Experience {
   id: string
   role: string
   org: string
+  // short name for tight spaces like the Home page, e.g. 'SOCIS'
+  orgShort?: string
   orgUrl?: string
   location?: string
   start: string
@@ -31,6 +33,7 @@ export const EXPERIENCES: Experience[] = [
     id: 'socis-vp-internal',
     role: 'VP of Internal Affairs',
     org: 'Society of Computing and Information Science (SOCIS)',
+    orgShort: 'SOCIS',
     orgUrl: 'https://socis.ca',
     location: 'Guelph, ON',
     start: '2026-05',

@@ -1,22 +1,36 @@
 import { motion } from 'framer-motion'
 import ParticleField from '../components/ParticleField'
 // import Constellation from '../components/Constellation'
+import StatusPanel from '../components/StatusPanel'
 import resumePDF from '../assets/Sheil_Patel_Resume.pdf'
 
+// Mobile/tablet: hero then status panel, stacked and scrollable.
+// Desktop (lg): one screen, panel top-left and hero bottom-right.
 export default function Home() {
   return (
-    <div className="relative w-full h-[calc(100vh-73px)] overflow-hidden bg-black">
-      <ParticleField />
+    <div className="relative flex min-h-[calc(100dvh-73px)] w-full flex-col gap-10 bg-black px-6 py-10 lg:block lg:h-[calc(100vh-73px)] lg:overflow-hidden lg:p-0">
+      <div className="fixed inset-0">
+        <ParticleField />
+      </div>
       {/* <Constellation /> */}
       <div
-        className="absolute bottom-0 right-0 w-full md:w-[55rem] h-2/3 pointer-events-none"
+        className="absolute bottom-0 right-0 hidden w-[55rem] h-2/3 pointer-events-none lg:block"
         style={{
           background:
             'radial-gradient(circle at bottom right, black 20%, transparent 70%)',
         }}
       />
 
-      <div className="absolute bottom-0 right-0 p-8 md:p-12 max-w-xl">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.5, ease: 'easeOut' }}
+        className="relative order-2 w-full max-w-md lg:absolute lg:left-12 lg:top-10 lg:max-h-[calc(100%-5rem)] lg:w-[24rem] lg:max-w-none lg:overflow-y-auto lg:[scrollbar-color:var(--color-gray-700)_transparent] lg:[scrollbar-width:thin] xl:top-auto xl:bottom-12 xl:w-[36rem] 2xl:w-[46rem]"
+      >
+        <StatusPanel />
+      </motion.div>
+
+      <div className="relative order-1 max-w-xl lg:absolute lg:bottom-0 lg:right-0 lg:p-12">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}

@@ -16,6 +16,8 @@ export interface Project {
   id: string
   title: string
   tagline: string
+  // short result shown on the Home page, e.g. '90% accuracy' (falls back to tags)
+  headline?: string
   period: string
   featured: boolean
   categories: ProjectCategory[]
@@ -38,6 +40,7 @@ export const PROJECTS: Project[] = [
     id: 'ham10000',
     title: 'Deep Learning Analysis of HAM10000',
     tagline: 'Teaching neural networks to spot skin cancer in dermatology images.',
+    headline: '90% accuracy · 0.83 macro F1',
     period: 'Jan – Apr 2026',
     featured: true,
     categories: ['ml'],
@@ -47,6 +50,21 @@ export const PROJECTS: Project[] = [
       'Traced weak melanoma recall to class imbalance rather than model capacity by diagnosing overfitting through learning curves and confusion matrices, presented in a co-authored research paper',
     ],
     tags: ['PyTorch', 'TorchVision', 'Scikit-learn', 'Transfer Learning', 'CNNs'],
+  },
+  {
+    id: 'pyxis',
+    title: 'Pyxis',
+    tagline: "A stargazing companion app that tells you when it's worth looking up.",
+    period: 'Oct 2026 – Present',
+    featured: true,
+    categories: ['frontend', 'backend'],
+    highlights: [
+      'Led a 5-person team from concept to a working MVP demo by planning the project, splitting work into GitLab feature branches, and integrating auth, location, calendar, and navigation into main through merge requests',
+      "Told users when it's worth looking up with a 0–100 visibility score by designing a model that combines cloud cover, precipitation chance, light pollution (Bortle scale), and time of day",
+      'Helped users plan around upcoming sightings by building celestial event tracking that surfaces events on an in-app calendar',
+      'Laid the authentication foundation by configuring Firebase for the Flutter app and writing the core Firebase Auth service',
+    ],
+    tags: ['Flutter', 'Dart', 'Firebase Auth', 'Cloud Firestore', 'GitLab'],
   },
   {
     id: 'nyc-opendata-heatmap',
